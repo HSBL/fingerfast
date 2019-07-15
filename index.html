@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FingerFreakingFast</title>
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- internal css -->
+    <style>
+        body {
+            background-color: rgb(192, 223, 231);
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Add rounded corners to the top left and the top right corner of the image */
+        .card img {
+            border-radius: 5px 5px 0 0;
+            width: 100%;
+            opacity: 0.85;
+        }
+
+        .maudiketik {
+            background-color: skyblue;
+            border-radius: 4px;
+        }
+
+        .kataBenar {
+            background-color: rgb(146, 243, 188);
+            border-radius: 4px;
+        }
+
+        .kataSalah {
+            background-color: rgb(245, 145, 145);
+            border-radius: 4px;
+        }
+
+        /* On mouse-over, add a deeper shadow */
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add some padding inside the card container */
+        .container {
+            padding: 20px 16px;
+        }
+
+        .imagegame {
+            max-width: 500px;
+            max-height: 250px;
+            overflow: hidden;
+        }
+
+        .jumbotron {
+            position: relative;
+            top: -60px;
+            border-radius: 25px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Landing page div -->
+    <div id="landing" class="container">
+        <div id="title">
+            <div class="text-center">
+                <h2>Do you type faster than my grandma?</h2>
+                <p>
+                    See How fast your finger can type
+                </p>
+                <h4>Choose your method of scoring:</h4>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-2" style="border-right:1px solid #d9edf7">
+                    <div class="card">
+                        <img src="img/man.svg" alt="Avatar">
+                        <div class="container col-md-12 col-sm-12 text-center">
+                            <br>
+                            <button id="game2btn" class="btn btn-success"><b>SPACE</b></button>
+                            <br>
+                            <hr>
+                            <p>Space method let you track your progress each time you press space on the keyboard.</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <div class="card">
+                        <img src="img/woman.svg" alt="Avatar" style="width: 100%;">
+                        <div class="container col-md-12 col-sm-12 text-center">
+                            <br>
+                            <button id="game1btn" class="btn btn-primary"><b>ENTER</b></button>
+                            <br>
+                            <hr>
+                            <p>Enter method let you finish your job first, after your last typed word hit enter to
+                                calculate your result.</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Game div 1 -->
+    <div id="game1">
+        <div class="jumbotron col-md-offset-3 col-md-6 ">
+            <div class="imagegame center-block">
+                <img id="imageTypewriter" src="img\typewriter.jpg" alt="typewriter" width="500px">
+            </div>
+            <div class="container text-center">
+                <!-- tulisan untuk ditulis -->
+                <div class="container">
+                    <p id="persoalan">
+                    </p>
+                </div>
+                <!-- input -->
+                <input id="input1" type="text" class="form-control" placeholder="Type!!!">
+            </div>
+            <div class="text-center">
+                <hr>
+                <!-- timer -->
+                <br>
+
+                <br>
+                <p>Your time:
+
+                    <span id="detik"></span>
+                    seconds
+                </p>
+                <br>
+                <p id="scoring">Score:<span id="presentScore"></span></p>
+                <button id="panicButton" type="button" class="btn btn-danger">Panic Button</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- result div -->
+    <div id="resultModal" class="modal" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Congratulation!</h4>
+                </div>
+                <div class="modal-body">
+                    <img class="left-block" src="https://image.flaticon.com/icons/svg/321/321773.svg" alt="trophy"
+                        width="50px">
+                    <h4>Your finger velocity:
+
+                        <span id="scoreKamu"></span> correct words in <span id="scoreWaktu"></span> seconds
+
+                    </h4>
+                    <br>
+                    <!-- contact form -->
+                    <div class="container" style="
+                    width:auto;
+                    ">
+                        <h4>interested to work with us?</h4>
+                        <h5>Get in touch!</h5>
+                        <form action="https://formspree.io/amilhasbala@gmail.com" method="POST">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                    name="email">
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label for="message">Message:</label>
+                                    <textarea class="form-control" rows="5" id="comment" name="message"
+                                        type="text"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" value="Send" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer"> <button type="button" class="btn btn-default"
+                        data-dismiss="modal">Close</button>
+                    <button id="playAgain" type="button" class="btn btn-danger">Play Again?</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- bootstrap javascript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <script>
+        $('#game1').hide();
+        $('#landing').hide();
+        $('#landing').slideDown();
+        var kalimat, soal, katasoal, jawab, score, waktu, d, wait, jawabArayNo, katake, idKata;
+
+        //on click
+        $('#game1btn').click(function () {
+            // animation
+            $('#landing').slideUp(500);
+            //logic
+            score = 0
+            $('#scoring').hide();
+            $('#game1').slideDown();
+            $("#input1").focus();
+            $.ajax({
+                url: 'http://quotes.stormconsultancy.co.uk/random.json',
+                dataType: 'json',
+                success: function (data) {
+                    kalimat = data.quote;
+                    console.log(data)
+                    soal = kalimat.split(' ');
+                    katake = 0
+                    soal.forEach(function (kata) {
+                        $('#persoalan').append(
+                            `<span id="katake${katake}">${kata} </span>`
+                        );
+                        katake++
+                    });
+                    $('#katake0').addClass('maudiketik');
+
+                },
+                beforeSend: function () {
+                    //loading icon 
+                },
+                complete: function () {
+                    //timer start
+                    waktu = setInterval(myTimer, 1000);
+                    d = 1;
+
+                    function myTimer() {
+                        $('#detik').text(d);
+                        d++;
+                    }
+                }
+            });
+
+            idKata = 1
+            $('#input1').keypress(function (e) {
+                if (e.which == 32) {
+                    // code to execute at space key
+                    $("#katake" + idKata).addClass('maudiketik');
+                    idKata++
+                }
+            });
+
+
+            $('#input1').keypress(function (e) {
+                if (e.which == 13) {
+                    //count score
+                    jawab = $('#input1').val();
+                    jawabAray = jawab.split(' ');
+                    jawabArayNo = 0
+                    soal.forEach(function (word) {
+
+                        if (word == jawabAray[jawabArayNo]) {
+                            score = score + 1
+                        }
+                        jawabArayNo++
+                    });
+
+                    //display
+                    $('#scoreKamu').text(score)
+                    $('#scoreWaktu').text(d)
+
+                    $('#resultModal').modal('show')
+                }
+            });
+            $('#playAgain').click(function () {
+                window.location.reload();
+            });
+        });
+
+        //Game 2 logic
+        $('#game2btn').click(function () {
+            // animation
+            $('#landing').slideUp(500);
+            //logic
+            score = 0
+            $('#game1').slideDown();
+            $("#input1").focus();
+            $.ajax({
+                url: 'http://quotes.stormconsultancy.co.uk/random.json',
+                dataType: 'json',
+                success: function (data) {
+                    kalimat = data.quote;
+                    soal = kalimat.split(' ');
+                    consoal = soal.concat();
+                    katake = 0
+                    soal.forEach(function (kata) {
+                        $('#persoalan').append(
+                            `<span id="katake${katake}">${kata} </span>`
+                        );
+                        katake++
+                    });
+                    $('#katake0').addClass('maudiketik');
+
+                },
+                beforeSend: function () {
+                    //loading icon on timer
+                },
+                complete: function () {
+                    //timer start
+                    waktu = setInterval(myTimer, 1000);
+                    d = 1;
+
+                    function myTimer() {
+                        $('#detik').text(d);
+                        d++;
+                    }
+                }
+            });
+
+            idKata = 1
+            $('#input1').val(' ');
+            $('#input1').keypress(function (e) {
+                if (e.which == 32) {
+
+                    $("#katake" + idKata).addClass('maudiketik');
+                    idKata++
+                    jawab = $('#input1').val();
+                    katajawab = jawab.split(' ')
+                    $('#input1').val('');
+                    if (consoal[0] == katajawab[1]) {
+                        console.log('benar')
+                        $('#katake' + (idKata - 2)).addClass('kataBenar');
+                        score = score + 1
+                    } else {
+                        console.log('salah')
+                        $('#katake' + (idKata - 2)).addClass('kataSalah');
+                    };
+                    consoal.shift()
+                    $('#presentScore').text(score)
+                    if (consoal.length == 0) {
+                        //show result
+                        $('#scoreKamu').text(score)
+                        $('#scoreWaktu').text(d)
+                        $('#resultModal').modal('show')
+                    }
+
+
+                }
+            });
+
+
+
+            $('#playAgain').click(function () {
+                window.location.reload();
+            });
+        });
+
+        $('#panicButton').click(function () {
+            window.location.reload();
+        });
+    </script>
+
+</body>
+
+</html>
